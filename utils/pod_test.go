@@ -128,7 +128,7 @@ func buildKubeClientSet(pods ...*corev1.Pod) (kubernetes.Interface, error) {
 func buildAPIServerPod(serviceIPRange, _ string) (*corev1.Pod, labels.Selector) { // no --cluster-cidr parameter
 	labelKey, labelValue := "component", "kube-apiserver"
 	return buildPod(metav1.NamespaceSystem, labelValue+"-xxx", labelKey, labelValue,
-		[]string{"kube-apiserver", "--service-cluster-ip-range=" + serviceIPRange}, //nolint:goconst
+		[]string{"kube-apiserver", "--service-cluster-ip-range=" + serviceIPRange},
 		[]string{})
 }
 
